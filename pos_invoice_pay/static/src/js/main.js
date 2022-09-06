@@ -81,6 +81,7 @@ odoo.define("pos_invoices", function (require) {
         domain: [
             ["state", "=", "open"],
             ["type", "=", "out_invoice"],
+            ['user_id', "!=", false]
         ],
         loaded: function (self, invoices) {
             var invoices_ids = _.pluck(invoices, "id");
@@ -1100,6 +1101,7 @@ odoo.define("pos_invoices", function (require) {
                         model: "account.invoice",
                         method: "invoice_print",
                         args: [order.invoice_to_pay.id],
+                        context: {'report': '' }
                     }).then(function (action) {
                         self.chrome.do_action(action);
                         self.pos.stop_invoice_processing();
@@ -1223,7 +1225,7 @@ odoo.define("pos_invoices", function (require) {
             );
         },
         click_next: function () {
-            this.gui.show_screen("products");
+             this.pos.get_order().finalize();
         },
     });
 
