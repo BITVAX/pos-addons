@@ -1101,7 +1101,7 @@ odoo.define("pos_invoices", function (require) {
                         model: "account.invoice",
                         method: "invoice_print",
                         args: [order.invoice_to_pay.id],
-                        context: {'report': '' }
+                        context: {'report': (self.pos.config.invoice_report?self.pos.config.invoice_report[0]:false) }
                     }).then(function (action) {
                         self.chrome.do_action(action);
                         self.pos.stop_invoice_processing();

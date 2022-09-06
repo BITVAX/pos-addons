@@ -60,10 +60,10 @@ class PosOrder(models.Model):
                     "user_id": "user_id" in data and data["user_id"][0],
                     "partner_id": "partner_id" in data and data["partner_id"][0],
                     "name": data.get("origin", "")
-                    + " - "
-                    + data.get("number", "")
-                    + " - "
-                    + str(qty + 1),
+                            + " - "
+                            + data.get("number", "")
+                            + " - "
+                            + str(qty + 1),
                     "paid_invoice": True,
                 }
             )
@@ -141,6 +141,13 @@ class AccountPayment(models.Model):
 
 class AccountInvoice(models.Model):
     _inherit = "account.invoice"
+
+    @api.multi
+    def invoice_print(self):
+        report = self.env.context.get('report', False)
+        if report:
+            return self.env['ir.actions.report'].browse(report).report_action(self)
+        return super(AccountInvoice, self).invoice_print()
 
     def action_updated_invoice(self):
         message = {"channel": INV_CHANNEL, "id": self.id}
@@ -233,6 +240,7 @@ class PosConfig(models.Model):
         acc = self.env["account.account"].search([("code", "=", 220000)]).id
         return acc if acc else False
 
+    invoice_report = fields.Many2one('ir.actions.report', domain=[('model', '=', 'account.invoice')])
     show_invoices = fields.Boolean(help="Show invoices in POS", default=True)
     show_sale_orders = fields.Boolean(help="Show sale orders in POS", default=True)
     pos_invoice_pay_writeoff_account_id = fields.Many2one(
