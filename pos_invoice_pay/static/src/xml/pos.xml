@@ -5,35 +5,35 @@
 <templates id="template" xml:space="preserve">
     <t t-name="SaleOrdersButton">
         <div class='control-button'>
-            <i class='fa fa-list-alt' />
+            <i class='fa fa-list-alt'/>
             Fetch Orders
         </div>
     </t>
     <t t-name="InvoicesButton">
         <div class='control-button'>
-            <i class='fa fa-list-alt' />
+            <i class='fa fa-list-alt'/>
             Fetch Invoices
         </div>
     </t>
     <t t-name="SaleOrder">
         <tr class='sale-order' t-att-data-id='item.id'>
             <td>
-                <t t-esc='item.name' />
+                <t t-esc='item.name'/>
             </td>
             <td>
-                <t t-esc='item.date_order' />
+                <t t-esc='item.date_order'/>
             </td>
             <td>
-                <t t-esc='item.partner_id[1]' />
+                <t t-esc='item.partner_id[1]'/>
             </td>
             <td>
-                <t t-esc='item.user_id[1]' />
+                <t t-esc='item.user_id[1]'/>
             </td>
             <td>
-                <t t-esc='widget.format_currency(item.amount_total)' />
+                <t t-esc='widget.format_currency(item.amount_total)'/>
             </td>
             <td>
-                <t t-esc='item.invoice_status' />
+                <t t-esc='item.invoice_status'/>
             </td>
         </tr>
     </t>
@@ -58,33 +58,33 @@
             t-attf-class='sale-order-line #{line.invoiceble ? "invoiceble" : ""}'
         >
             <td>
-                <t t-esc='line.product' />
+                <t t-esc='line.product'/>
             </td>
             <td>
-                <t t-esc='line.name' />
+                <t t-esc='line.name'/>
             </td>
             <td>
-                <t t-esc='line.uom_qty' />
+                <t t-esc='line.uom_qty'/>
             </td>
             <td>
-                <t t-esc='line.qty_delivered' />
+                <t t-esc='line.qty_delivered'/>
             </td>
             <td>
-                <t t-esc='line.qty_invoiced' />
+                <t t-esc='line.qty_invoiced'/>
             </td>
             <td>
-                <t t-esc='widget.format_currency(line.total)' />
+                <t t-esc='widget.format_currency(line.total)'/>
             </td>
             <td>
                 <t t-foreach="line.tax" t-as="tax">
-                    <t t-esc='tax' />
+                    <t t-esc='tax'/>
                 </t>
             </td>
             <td>
-                <t t-esc="line.discount" />
+                <t t-esc="line.discount"/>
             </td>
             <td>
-                <t t-esc='widget.format_currency(line.subtotal)' />
+                <t t-esc='widget.format_currency(line.subtotal)'/>
             </td>
         </tr>
     </t>
@@ -105,30 +105,30 @@
     <t t-name="InvoiceLine">
         <tr t-if="!line.display_type" class='sale-order-line' t-att-data-id='line.id'>
             <td>
-                <t t-esc="line.product" />
+                <t t-esc="line.product"/>
             </td>
             <td>
-                <t t-esc='line.name' />
+                <t t-esc='line.name'/>
             </td>
             <td>
-                <t t-esc='line.account' />
+                <t t-esc='line.account'/>
             </td>
             <td>
-                <t t-esc='line.qty' />
+                <t t-esc='line.qty'/>
             </td>
             <td>
-                <t t-esc='widget.format_currency(line.price_unit)' />
+                <t t-esc='widget.format_currency(line.price_unit)'/>
             </td>
             <td>
                 <t t-if="!type" t-foreach="line.tax" t-as="tax">
-                    <t t-esc='tax' />
+                    <t t-esc='tax'/>
                 </t>
             </td>
             <td>
-                <t t-esc="line.discount" />
+                <t t-esc="line.discount"/>
             </td>
             <td>
-                <t t-esc='widget.format_currency(line.amount)' />
+                <t t-esc='widget.format_currency(line.amount)'/>
             </td>
         </tr>
         <tr t-if="line.display_type" class='sale-order-line' t-att-data-id='line.id'>
@@ -138,7 +138,7 @@
                 />
             </td>
             <td colspan="7">
-                <t t-esc='line.name' />
+                <t t-esc='line.name'/>
             </td>
         </tr>
     </t>
@@ -147,17 +147,17 @@
             <div class="screen-content">
                 <section class="top-content">
                     <span class='button back'>
-                        <i class='fa fa-angle-double-left' />
+                        <i class='fa fa-angle-double-left'/>
                         Cancel
                     </span>
                     <span class='searchbox'>
-                        <input placeholder='Search Sale Orders' />
-                        <span class='search-clear' />
+                        <input placeholder='Search Sale Orders'/>
+                        <span class='search-clear'/>
                     </span>
-                    <span class='searchbox' />
+                    <span class='searchbox'/>
                     <span class='button next oe_hidden highlight'>
                         Create Invoice
-                        <i class='fa fa-angle-double-right' />
+                        <i class='fa fa-angle-double-right'/>
                     </span>
                 </section>
                 <section class="full-content">
@@ -193,28 +193,28 @@
     <t t-name="Invoice">
         <tr class='invoice' t-att-data-id='item.id'>
             <td>
-                <t t-esc='item.partner_id[1]' />
+                <t t-esc='item.partner_id[1]'/>
             </td>
             <td>
-                <t t-esc='item.date_invoice' />
+                <t t-esc='item.date_invoice'/>
             </td>
             <td>
-                <t t-esc='item.number' />
+                <t t-esc='item.number'/>
             </td>
             <td>
-                <t t-esc='item.user_id[1]' />
+                <t t-esc='item.user_id[1]'/>
             </td>
             <td>
-                <t t-esc='item.date_due' />
+                <t t-esc='item.date_due'/>
             </td>
             <td>
-                <t t-esc='widget.format_currency(item.amount_total)' />
+                <t t-esc='widget.format_currency(item.amount_total)'/>
             </td>
             <td>
-                <t t-esc='widget.format_currency(item.residual)' />
+                <t t-esc='widget.format_currency(item.residual)'/>
             </td>
             <td>
-                <t t-esc='item.state' />
+                <t t-esc='item.state'/>
             </td>
         </tr>
     </t>
@@ -223,16 +223,16 @@
             <div class="screen-content">
                 <section class="top-content">
                     <span class='button back'>
-                        <i class='fa fa-angle-double-left' />
+                        <i class='fa fa-angle-double-left'/>
                         Cancel
                     </span>
                     <span class='searchbox'>
-                        <input placeholder='Search Invoices' />
-                        <span class='search-clear' />
+                        <input placeholder='Search Invoices'/>
+                        <span class='search-clear'/>
                     </span>
-                    <span class='searchbox' />
+                    <span class='searchbox'/>
                     <span class='button next oe_hidden highlight'>
-                        <i class='fa fa-angle-double-right' />
+                        <i class='fa fa-angle-double-right'/>
                         Register Payment
                     </span>
                 </section>
@@ -273,13 +273,13 @@
             <div class='screen-content'>
                 <div class='top-content'>
                     <span class='button back'>
-                        <i class='fa fa-angle-double-left' />
+                        <i class='fa fa-angle-double-left'/>
                         Back
                     </span>
                     <h1>Payment</h1>
                     <span class='button next'>
                         Validate
-                        <i class='fa fa-angle-double-right' />
+                        <i class='fa fa-angle-double-right'/>
                     </span>
                 </div>
                 <div class='left-content pc40 touch-scrollable scrollable-y'>
@@ -300,20 +300,20 @@
                                 <div
                                     t-attf-class='button js_invoice #{ widget.pos.get_order().is_to_invoice() ? "highlight" : ""} '
                                 >
-                                    <i class='fa fa-file-text-o' />
+                                    <i class='fa fa-file-text-o'/>
                                     Invoice
                                 </div>
                             </t>
                         </t>
                         <t t-if='widget.pos.config.tip_product_id'>
                             <div class='button js_tip'>
-                                <i class='fa fa-heart' />
+                                <i class='fa fa-heart'/>
                                 Tip
                             </div>
                         </t>
                         <t t-if='widget.pos.config.iface_cashdrawer'>
                             <div class='button js_cashdrawer'>
-                                <i class='fa fa-archive' />
+                                <i class='fa fa-archive'/>
                                 Open Cashbox
                             </div>
                         </t>
@@ -326,7 +326,7 @@
         <t t-if="!paymentlines.length">
             <div class='paymentlines-empty'>
                 <div class='total'>
-                    <t t-esc="widget.format_currency(widget.get_invoice_residual())" />
+                    <t t-esc="widget.format_currency(widget.get_invoice_residual())"/>
                 </div>
                 <div class='message'>Please select a payment method.</div>
             </div>
@@ -334,11 +334,11 @@
         <t t-if="paymentlines.length">
             <table class='paymentlines'>
                 <colgroup>
-                    <col class='due' />
-                    <col class='tendered' />
-                    <col class='change' />
-                    <col class='method' />
-                    <col class='controls' />
+                    <col class='due'/>
+                    <col class='tendered'/>
+                    <col class='change'/>
+                    <col class='method'/>
+                    <col class='controls'/>
                 </colgroup>
                 <thead>
                     <tr class='label'>
@@ -346,7 +346,7 @@
                         <th>Tendered</th>
                         <th>Change</th>
                         <th>Method</th>
-                        <th />
+                        <th/>
                     </tr>
                 </thead>
                 <tbody>
@@ -359,7 +359,7 @@
                                     />
                                 </td>
                                 <td class='col-tendered edit'>
-                                    <t t-esc='widget.inputbuffer' />
+                                    <t t-esc='widget.inputbuffer'/>
                                     <!--                                     <t t-esc='line.get_amount()' />
  -->
                                 </td>
@@ -371,13 +371,13 @@
                                     </td>
                                 </t>
                                 <t t-if='!order.get_change(line)'>
-                                    <td class='col-change' />
+                                    <td class='col-change'/>
                                 </t>
                                 <td class='col-name'>
-                                    <t t-esc='line.name' />
+                                    <t t-esc='line.name'/>
                                 </td>
                                 <td class='delete-button' t-att-data-cid='line.cid'>
-                                    <i class='fa fa-times-circle' />
+                                    <i class='fa fa-times-circle'/>
                                 </td>
                             </tr>
                         </t>
@@ -401,10 +401,10 @@
                                     </t>
                                 </td>
                                 <td class='col-name'>
-                                    <t t-esc='line.name' />
+                                    <t t-esc='line.name'/>
                                 </td>
                                 <td class='delete-button' t-att-data-cid='line.cid'>
-                                    <i class='fa fa-times-circle' />
+                                    <i class='fa fa-times-circle'/>
                                 </td>
                             </tr>
                         </t>
@@ -412,7 +412,7 @@
                     <t t-if='extradue'>
                         <tr class='paymentline extra' t-att-data-cid='0'>
                             <td class='col-due'>
-                                <t t-esc='widget.format_currency_no_symbol(extradue)' />
+                                <t t-esc='widget.format_currency_no_symbol(extradue)'/>
                             </td>
                         </tr>
                     </t>
@@ -430,12 +430,12 @@
                     </h1>
                     <span class='button next'>
                         Next Order
-                        <i class='fa fa-angle-double-right' />
+                        <i class='fa fa-angle-double-right'/>
                     </span>
                 </div>
                 <div class="centered-content touch-scrollable">
                     <div class="button print">
-                        <i class='fa fa-print' />
+                        <i class='fa fa-print'/>
                         Print Receipt
                     </div>
                     <div class="pos-receipt-container">
@@ -448,38 +448,39 @@
     <t t-name="PosInvoiceTicket">
         <div class="pos-sale-ticket">
             <div class="pos-center-align">
-                <t t-esc="moment().format('L LT')" />
-                <t t-esc="order.name" />
+                <t t-esc="moment().format('L LT')"/>
+                <t t-esc="order.name"/>
             </div>
-            <br />
-            <div>
+            <br/>
+            <div class="pos-invoice-ref">
                 Payment of Invoice:
-                <t t-esc="order.invoice_to_pay.number" />
+                <t t-esc="order.invoice_to_pay.number"/>
                 <t
                     t-if='order.invoice_to_pay.origin &amp;&amp; order.invoice_to_pay.origin !== " "'
                 >
                     (
-                    <t t-esc="order.invoice_to_pay.origin" />
+                    <t t-esc="order.invoice_to_pay.origin"/>
                     )
                 </t>
             </div>
-            <br />
-            <t t-esc="widget.pos.company.name" />
-            <br />
-            Phone:
-            <t t-esc="widget.pos.company.phone || ''" />
-            <br />
+            <br/>
+            <t t-esc="widget.pos.company.name"/>
+            <br/>
+            <div class="pos-company-phone">
+                Phone: <t t-esc="widget.pos.company.phone || ''"/>
+            </div>
+            <br/>
             User:
             <t
                 t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"
             />
-            <br />
-            <br />
+            <br/>
+            <br/>
             <t t-if="receipt.header">
                 <div style='text-align:center'>
-                    <t t-esc="receipt.header" />
+                    <t t-esc="receipt.header"/>
                 </div>
-                <br />
+                <br/>
             </t>
             <table class='receipt-total'>
                 <tr>
@@ -501,10 +502,10 @@
                 <t t-foreach="order.get_tax_details()" t-as="taxdetail">
                     <tr>
                         <td>
-                            <t t-esc="taxdetail.name" />
+                            <t t-esc="taxdetail.name"/>
                         </td>
                         <td class="pos-right-align">
-                            <t t-esc="widget.format_currency(taxdetail.amount)" />
+                            <t t-esc="widget.format_currency(taxdetail.amount)"/>
                         </td>
                     </tr>
                 </t>
@@ -517,20 +518,20 @@
                     </td>
                 </tr>
             </table>
-            <br />
+            <br/>
             <table class='receipt-paymentlines'>
                 <t t-foreach="paymentlines" t-as="line">
                     <tr>
                         <td>
-                            <t t-esc="line.name" />
+                            <t t-esc="line.name"/>
                         </td>
                         <td class="pos-right-align">
-                            <t t-esc="widget.format_currency(line.get_amount())" />
+                            <t t-esc="widget.format_currency(line.get_amount())"/>
                         </td>
                     </tr>
                 </t>
             </table>
-            <br />
+            <br/>
             <table class='receipt-change'>
                 <tr>
                     <td>Change:</td>
@@ -542,9 +543,9 @@
                 </tr>
             </table>
             <t t-if="receipt.footer">
-                <br />
+                <br/>
                 <div style='text-align:center'>
-                    <t t-esc="receipt.footer" />
+                    <t t-esc="receipt.footer"/>
                 </div>
             </t>
         </div>
@@ -553,50 +554,50 @@
         <receipt align='center' width='40' value-thousands-separator=''>
             <div>
                 <t t-if='receipt.company.logo'>
-                    <img t-att-src='receipt.company.logo' />
+                    <img t-att-src='receipt.company.logo'/>
                 </t>
                 <t t-if='!receipt.company.logo'>
                     <h1>
-                        <t t-esc='receipt.company.name' />
+                        <t t-esc='receipt.company.name'/>
                     </h1>
-                    <br />
+                    <br/>
                 </t>
                 <div>
                     <t t-if='receipt.company.contact_address'>
                         <div font='b'>
-                            <t t-esc='receipt.company.contact_address' />
+                            <t t-esc='receipt.company.contact_address'/>
                         </div>
                     </t>
                     <t t-if='receipt.company.phone'>
                         <div font='b'>
                             Tel:
-                            <t t-esc='receipt.company.phone' />
+                            <t t-esc='receipt.company.phone'/>
                         </div>
                     </t>
                     <t t-if='receipt.company.vat'>
                         <div>
                             VAT:
-                            <t t-esc='receipt.company.vat' />
+                            <t t-esc='receipt.company.vat'/>
                         </div>
                     </t>
                     <t t-if='receipt.company.email'>
                         <div font='b'>
-                            <t t-esc='receipt.company.email' />
+                            <t t-esc='receipt.company.email'/>
                         </div>
                     </t>
                     <t t-if='receipt.company.website'>
                         <div font='b'>
-                            <t t-esc='receipt.company.website' />
+                            <t t-esc='receipt.company.website'/>
                         </div>
                     </t>
                     <t t-if='receipt.header_xml'>
                         <div font='b'>
-                            <t t-raw='receipt.header_xml' />
+                            <t t-raw='receipt.header_xml'/>
                         </div>
                     </t>
                     <t t-if='!receipt.header_xml and receipt.header'>
                         <div font='b'>
-                            <t t-raw='receipt.header' />
+                            <t t-raw='receipt.header'/>
                         </div>
                     </t>
                     <div
@@ -605,28 +606,28 @@
                         <div font='b' class='cashier'>
                             <div>
                                 User:
-                                <t t-esc='receipt.cashier' />
+                                <t t-esc='receipt.cashier'/>
                             </div>
                         </div>
                     </t>
-                    <br />
+                    <br/>
                     <t
                         t-if='order.invoice_to_pay and order.invoice_to_pay.number and order.invoice_to_pay.origin'
                     >
                         <div>
                             Payment of Invoice:
-                            <t t-esc="order.invoice_to_pay.number" />
+                            <t t-esc="order.invoice_to_pay.number"/>
                             <t
                                 t-if='order.invoice_to_pay.origin &amp;&amp; order.invoice_to_pay.origin !== " "'
                             >
                                 (
-                                <t t-esc="order.invoice_to_pay.origin" />
+                                <t t-esc="order.invoice_to_pay.origin"/>
                                 )
                             </t>
                         </div>
                     </t>
                 </div>
-                <br />
+                <br/>
                 <div>
                     <line>
                         <left>Subtotal:</left>
@@ -647,10 +648,10 @@
                     <t t-foreach="order.get_tax_details()" t-as="taxdetail">
                         <line>
                             <left>
-                                <t t-esc="taxdetail.name" />
+                                <t t-esc="taxdetail.name"/>
                             </left>
                             <right class="pos-right-align">
-                                <t t-esc="widget.format_currency(taxdetail.amount)" />
+                                <t t-esc="widget.format_currency(taxdetail.amount)"/>
                             </right>
                         </line>
                     </t>
@@ -663,20 +664,20 @@
                         </right>
                     </line>
                 </div>
-                <br />
+                <br/>
                 <div class='receipt-paymentlines'>
                     <t t-foreach="paymentlines" t-as="line">
                         <line>
                             <left>
-                                <t t-esc="line.name" />
+                                <t t-esc="line.name"/>
                             </left>
                             <right class="pos-right-align">
-                                <t t-esc="widget.format_currency(line.get_amount())" />
+                                <t t-esc="widget.format_currency(line.get_amount())"/>
                             </right>
                         </line>
                     </t>
                 </div>
-                <br />
+                <br/>
                 <div class='receipt-change'>
                     <line>
                         <left>Change:</left>
@@ -687,24 +688,24 @@
                         </right>
                     </line>
                 </div>
-                <div class='before-footer' />
+                <div class='before-footer'/>
                 <t t-if='receipt.footer_xml'>
-                    <t t-raw='receipt.footer_xml' />
+                    <t t-raw='receipt.footer_xml'/>
                 </t>
                 <t t-if='!receipt.footer_xml and receipt.footer'>
-                    <br />
-                    <t t-raw='receipt.footer' />
-                    <br />
-                    <br />
+                    <br/>
+                    <t t-raw='receipt.footer'/>
+                    <br/>
+                    <br/>
                 </t>
-                <div class='after-footer' />
-                <br />
+                <div class='after-footer'/>
+                <br/>
                 <div font='b'>
                     <div>
-                        <t t-esc='receipt.name' />
+                        <t t-esc='receipt.name'/>
                     </div>
                     <div>
-                        <t t-esc='receipt.date.localestring' />
+                        <t t-esc='receipt.date.localestring'/>
                     </div>
                 </div>
             </div>
