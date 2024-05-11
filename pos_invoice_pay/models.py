@@ -87,8 +87,8 @@ class PosOrder(models.Model):
     def process_invoice_payment(self, invoice):
         for statement in invoice["data"]["statement_ids"]:
             inv_id = invoice["data"]["invoice_to_pay"]["id"]
-            invoice = self.env["account.invoice"].browse(inv_id)
-            if invoice.state != "open":
+            invoice_obj = self.env["account.invoice"].browse(inv_id)
+            if invoice_obj.state != "open":
                 continue
             journal_id = statement[2]["journal_id"]
             journal = self.env["account.journal"].browse(journal_id)
@@ -108,7 +108,7 @@ class PosOrder(models.Model):
                 "invoice_ids": [(4, inv_id, None)],
                 "payment_type": "inbound",
                 "amount": amount,
-                "currency_id": invoice.currency_id.id,
+                "currency_id": invoice_obj.currency_id.id,
                 "partner_id": invoice["data"]["invoice_to_pay"]["partner_id"][0],
                 "partner_type": "customer",
                 "payment_difference_handling": payment_difference_handling,
